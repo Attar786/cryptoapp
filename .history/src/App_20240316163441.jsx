@@ -16,6 +16,7 @@ function App() {
   <Route path="/coins" element= {<Coins/>}/>
   <Route path="/coin/:id" element= {<CoinDetails/>}/>
   <Route path="/exchanges" element= {<Exhanges/>}/>
+  <Route path="/header" element= {<Headers/>}/>
 </Routes>
 
       </Router>

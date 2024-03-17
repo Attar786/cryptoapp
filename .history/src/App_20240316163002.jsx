@@ -10,12 +10,13 @@ function App() {
   return (
     <>
       <Router>
-<Headers/>
+
 <Routes>
   <Route path="/" element= {<Home/>}/>
-  <Route path="/coins" element= {<Coins/>}/>
-  <Route path="/coin/:id" element= {<CoinDetails/>}/>
-  <Route path="/exchanges" element= {<Exhanges/>}/>
+  <Route path="/" element= {<Coins/>}/>
+  <Route path="/" element= {<CoinDetails/>}/>
+  <Route path="/" element= {<Exhanges/>}/>
+  <Route path="/" element= {<Headers/>}/>
 </Routes>
 
       </Router>
