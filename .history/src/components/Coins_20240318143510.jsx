@@ -1,32 +1,19 @@
-import { Container, HStack, Button} from "@chakra-ui/react";
+import { Container, HStack, VStack, Heading, Text, Image } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { server } from "../main";
 import Error from "./Error";
 // import ExchangeCard from "./ExchangeCard";
 import Loader from "./Loader";
-import Coinscards from "./Coinscards";
 const Coins = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
-  const [currency, setCurrency] = useState("pkr");
-  const currencysymbol = currency==="pkr"?"pkr": currency==="eur"? "€" : "$";
-  const changepage = (page) =>
-  {
-    setPage(page);
-    setLoading(true);
-
-  }
-
-  const bttn = new Array(132).fill(1);
- 
   useEffect(() => {
     const fetchCoins = async () => {
-try 
-{
-  const { data } = await axios.get(`${server}/coins/markets?vs_currency=${currency}&page=${page}`);
+try {
+  const { data } = await axios.get(`${server}/coins/markets?vs_currency=inr?`);
       setCoins(data);
       console.log(data);
       setLoading(false);
@@ -35,7 +22,7 @@ try
   setLoading(false)
 }   };
     fetchCoins();
-  }, [currency, page]);
+  }, []);
 
 if(error)
 return
@@ -50,38 +37,44 @@ return
           <HStack wrap={"wrap "}>
             {coins.map((i) => (
               <div key={i.id}>
-                <Coinscards
+                <ExchangeCard
                   key={i.id}
                   name={name.i}
                   img={i.image}
-                  price={i.current_price}
-                  // rank={i.trust_score_rank}
-                  symbol={i.symbol}
-                  // url={i.url}
-                  currencysymbol={currencysymbol}
+                  rank={i.trust_score_rank}
+                  url={i.url}
                 />
                 {i.name}
               </div>
             ))}{" "}
           </HStack>
-<HStack w={"full"} overflow={"auto"} p={"8"}>
-{bttn.map((item, index)=> (
-// eslint-disable-next-line react/jsx-key
-<Button bgColor={"blackAlpha.900"} color={"white"} onClick={()=> changepage(index+1)}
->
-  {index+1}
-</Button>
-))}
-</HStack>
-
-
         </>
       )}
     </Container>
   );
 };
 // eslint-disable-next-line react/prop-types
+const ExchangeCard = ({ name, img  , rank, url }) => (
+  <a href={url} target={"blank"}>
+    <VStack w={"52"} shadow={"lg"} borderRadius={"lg"} transition={"all 0.3s"}
+    m={"4"} 
+    css={{"&&:hover":{
+transform:"scale(1.1)"
 
+
+    }}}
+    
+    
+    >
+      <Image src={img}  width={"10"} height={"10"} alt={"Exchanges"} />
+
+      <Heading size={"md"} noOfLines={1}>
+        {rank}
+      </Heading>
+      <Text noOfLines={1}>{name}</Text>
+    </VStack>
+  </a>
+);
 
 
 export default Coins;

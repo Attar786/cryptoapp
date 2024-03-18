@@ -64,12 +64,10 @@ return
               </div>
             ))}{" "}
           </HStack>
-<HStack w={"full"} overflow={"auto"} p={"8"}>
+<HStack>
 {bttn.map((item, index)=> (
-// eslint-disable-next-line react/jsx-key
 <Button bgColor={"blackAlpha.900"} color={"white"} onClick={()=> changepage(index+1)}
 >
-  {index+1}
 </Button>
 ))}
 </HStack>

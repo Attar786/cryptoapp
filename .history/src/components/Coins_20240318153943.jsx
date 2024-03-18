@@ -1,4 +1,4 @@
-import { Container, HStack, Button} from "@chakra-ui/react";
+import { Container, HStack, VStack, Heading, Text, Image } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { server } from "../main";
@@ -13,15 +13,9 @@ const Coins = () => {
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("pkr");
   const currencysymbol = currency==="pkr"?"pkr": currency==="eur"? "€" : "$";
-  const changepage = (page) =>
-  {
-    setPage(page);
-    setLoading(true);
 
-  }
 
-  const bttn = new Array(132).fill(1);
- 
+
   useEffect(() => {
     const fetchCoins = async () => {
 try 
@@ -64,17 +58,6 @@ return
               </div>
             ))}{" "}
           </HStack>
-<HStack w={"full"} overflow={"auto"} p={"8"}>
-{bttn.map((item, index)=> (
-// eslint-disable-next-line react/jsx-key
-<Button bgColor={"blackAlpha.900"} color={"white"} onClick={()=> changepage(index+1)}
->
-  {index+1}
-</Button>
-))}
-</HStack>
-
-
         </>
       )}
     </Container>
