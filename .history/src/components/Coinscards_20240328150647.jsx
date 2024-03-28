@@ -3,9 +3,8 @@ import {VStack, Image, Heading, Text} from "@chakra-ui/react"
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const Coinscards = ({id, name, img  , symbol, price , currencySymbol="Rs"}) => (
-    
-    <Link  to={`/coins/${id}`} target={"blank"}>
+const Coinscards = ({id, name, img  , symbol, price , currencysymbol="Rs"}) => (
+    <Link borderRadius={"2"} to={`/coins/${id}`} target={"blank"}>
       <VStack w={"52"} shadow={"lg"} borderRadius={"lg"} transition={"all 0.3s"}
       m={"4"} 
       css={{"&&:hover":{
@@ -18,7 +17,7 @@ const Coinscards = ({id, name, img  , symbol, price , currencySymbol="Rs"}) => (
             {symbol}
         </Heading>
         <Text noOfLines={1}>{name}</Text>
-        <Text noOfLines={1}>{price ? `${ currencySymbol } ${" "} ${price}`:"NA"}</Text>
+        <Text noOfLines={1}>{price ? `${currencysymbol}${price}`:"NA"}</Text>
         </VStack>
     </Link>
 );

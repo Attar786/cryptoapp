@@ -58,7 +58,7 @@ return
 
 
           {/* <h1>data</h1> */}
-          <HStack wrap={"wrap "} justifyContent={"space-evenly"}>
+          <HStack wrap={"wrap "}>
             {coins.map((i) => (
               <div key={i.id}>
                 <Coinscards
@@ -71,7 +71,7 @@ return
                   // url={i.url}
                   currencySymbol={currencySymbol}
                 />
-                {/* {i.name} */}
+                {i.name}
               </div>
             ))}{" "}
           </HStack>

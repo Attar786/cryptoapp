@@ -12,7 +12,7 @@ const Coins = () => {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("pkr");
-  const currencySymbol = currency==="pkr" ? "pkr" : currency==="eur" ? "€" : "$";
+  const currencysymbol = currency==="pkr"?"pkr": currency==="eur"? "€" : "$";
   const changepage = (page) =>
   {
     setPage(page);
@@ -47,31 +47,30 @@ return
       ) : (
         <>
 
-<RadioGroup value={currency} onChange={(value) => setCurrency(value)} p={"8"}>
+<RadioGroup>
   <HStack spacing={"4"}>
-    <Radio value="pkr">PKR</Radio>
-    <Radio value="eur">EUR</Radio>
-    <Radio value="usd">USD</Radio>
+  <Radio value="pkr">PKR</Radio>
+  <Radio value="eur">EUR</Radio>
+  <Radio value="usd">USD</Radio>
   </HStack>
 </RadioGroup>
 
 
-
           {/* <h1>data</h1> */}
-          <HStack wrap={"wrap "} justifyContent={"space-evenly"}>
+          <HStack wrap={"wrap "}>
             {coins.map((i) => (
               <div key={i.id}>
                 <Coinscards
                   key={i.id}
-                  name={i.name}
+                  name={name.i}
                   img={i.image}
                   price={i.current_price}
                   // rank={i.trust_score_rank}
                   symbol={i.symbol}
                   // url={i.url}
-                  currencySymbol={currencySymbol}
+                  currencysymbol={currencysymbol}
                 />
-                {/* {i.name} */}
+                {i.name}
               </div>
             ))}{" "}
           </HStack>
