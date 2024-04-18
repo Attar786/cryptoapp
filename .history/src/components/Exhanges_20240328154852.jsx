@@ -40,12 +40,12 @@ return
               <div key={i.id}>
                 <ExchangeCard
                   key={i.id}
-                  name={i.name}
+                  name={name.i}
                   img={i.image}
                   rank={i.trust_score_rank}
                   url={i.url}
                 />
-                {/* {i.name} */}
+                {i.name}
               </div>
             ))}{" "}
           </HStack>

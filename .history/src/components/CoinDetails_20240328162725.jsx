@@ -18,7 +18,6 @@ const CoinDetails = () => {
     const fetchCoin = async () => {
 try 
 {
-  // const { data } = await axios.get(`${server}/coins/${params.id}`);
   const { data } = await axios.get(`${server}/coins/${params.id}`);
   console.log(data);    
   setCoin(data);

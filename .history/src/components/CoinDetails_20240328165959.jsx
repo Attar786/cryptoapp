@@ -19,7 +19,7 @@ const CoinDetails = () => {
 try 
 {
   // const { data } = await axios.get(`${server}/coins/${params.id}`);
-  const { data } = await axios.get(`${server}/coins/${params.id}`);
+  const { data } = await axios.get(`${server}/coin/${params.id}`);
   console.log(data);    
   setCoin(data);
       setLoading(false);

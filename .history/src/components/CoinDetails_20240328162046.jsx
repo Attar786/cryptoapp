@@ -1,8 +1,6 @@
 import {Container, Box} from '@chakra-ui/react'
 // import {useState, useEffect} from "react/effects"
-// import { axios } from 'axios';
-import axios from 'axios'; // Corrected import
-
+import { axios } from 'axios';
 import { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom"
 import { server } from '../main';
@@ -18,7 +16,6 @@ const CoinDetails = () => {
     const fetchCoin = async () => {
 try 
 {
-  // const { data } = await axios.get(`${server}/coins/${params.id}`);
   const { data } = await axios.get(`${server}/coins/${params.id}`);
   console.log(data);    
   setCoin(data);
